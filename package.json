@@ -1,0 +1,42 @@
+{
+  "name": "restaurant-pos-system",
+  "version": "1.0.0",
+  "description": "Full-stack Restaurant POS & Inventory System (Frontend + Backend)",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    
+    "server": "npm run dev --prefix backend",
+    "client": "npm run dev --prefix frontend",
+
+    "install-all": "npm install --prefix backend && npm install --prefix frontend",
+
+    "build": "npm run build --prefix frontend",
+
+    "start": "npm run start --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abdelrahman-Mahmoud-Elsaeed/restaurant-pos-system.git"
+  },
+  "keywords": [
+    "restaurant",
+    "pos",
+    "inventory",
+    "fullstack",
+    "node",
+    "express",
+    "react",
+    "angular"
+  ],
+  "author": "Abdelrahman Mahmoud",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Abdelrahman-Mahmoud-Elsaeed/restaurant-pos-system/issues"
+  },
+  "homepage": "https://github.com/Abdelrahman-Mahmoud-Elsaeed/restaurant-pos-system#readme",
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}
