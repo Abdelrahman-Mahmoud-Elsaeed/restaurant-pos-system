@@ -1,0 +1,65 @@
+node_modules/
+
+
+# =====================
+# BACKEND
+# =====================
+
+backend/node_modules/
+backend/dist/
+backend/build/
+backend/logs/
+backend/uploads/
+backend/logs
+backend/*.log
+backend/npm-debug.log*
+backend/yarn-debug.log*
+backend/yarn-error.log*
+backend/pids
+backend/*.pid
+backend/*.seed
+backend/*.pid.lock
+backend/.DS_Store
+backend/Thumbs.db
+backend/.vscode/
+backend/.idea/
+backend/*.swp
+backend/*.swo
+backend/coverage/
+backend/tmp/
+backend/temp/
+
+
+# =====================
+# FRONTEND
+# =====================
+
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr
+frontend/*.local
+frontend/logs
+frontend/*.log
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+frontend/lerna-debug.log*
+frontend/.vscode/*
+frontend/!.vscode/extensions.json
+frontend/.idea
+frontend/.DS_Store
+frontend/*.suo
+frontend/*.ntvs*
+frontend/*.njsproj
+frontend/*.sln
+frontend/*.sw?
+
+# =====================
+# GENERAL
+# =====================
+
+.DS_Store
+*.log
+.vscode/
+.idea/
