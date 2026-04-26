@@ -1,1 +1,89 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --primary-color: #b7102a;
+  --secondary-color: #515f74;
+  --surface-color: #fff8f7;
+  --variant-color: #f9dcda;
+  --success-color: #16a34a;
+  --warning-color: #eab308;
+  --error-color: #ba1a1a;
+  --variant-color: #f9dcda;
+  --text-color-1: #0f172a;
+  --text-color-2: #334155;
+  --text-color-3: #64748b;
+  --main-bg-color: #fff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Work Sans", sans-serif;
+  color: var(--text-color);
+  background-color: var(--main-bg-color);
+  line-height: 18px;
+}
+
+.h1 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: -0.8px;
+}
+
+.h2 {
+  font-weight: 600;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+h3 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text-color-2);
+}
+
+p {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: 0.6px;
+  color: var(--text-color-3);
+}
+
+
+.a{ 
+  /* Button */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 13.5px 30.54px 14.5px 30.55px;
+
+width: 120px;
+min-width: 120px;
+height: 52px;
+
+background: #B7102A;
+box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+border-radius: 16px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+}
