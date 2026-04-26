@@ -1,0 +1,44 @@
+body{
+    background-color: var(--surface-color);
+}
+.loginall{
+    margin : 200px;
+    max-width: auto;
+}
+
+.loginpart{
+    color: #8E001B;
+}
+
+.forms{
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--variant-color);
+    padding: 24px;
+    border-radius: 12px;
+}
+
+.pinaccess{
+    background-color: #FFF0EF;
+}
+
+.admin{
+    background-color: white;
+}
+ 
+hr{
+    color: #E4BEBC;
+}
+
+.btn{
+    background-color: #8E001B !important;
+    color: #FFF0EF;
+}
+
+
+.btnn{
+    background-color: #f5dad9;
+    border: #E4BEBC80;
+    padding: 20px 40px;
+    font-size: 30px;
+}
