@@ -1,6 +1,5 @@
-
 /**
- * Ui Button 
+ * Ui Button
  * @param {number} fontSize - input number bettwen 1 - 5.
  * @param {string} bgColor - input css var color.
  * @param {string} fontWight - input number bettwen 1 - 5.
@@ -9,30 +8,46 @@
  * @returns {number} The sum of the two numbers.
  */
 
-
-
-function Button({fontSize=4,fontWight="normal",padding="3", text="Primary",variant}) {
+function Button({
+  fontSize = 4,
+  fontWight = "normal",
+  text = "primary",
+  variant,
+  styles,
+}) {
   const baseStyles = {
-    primary: {
-      backgroundColor:"var(--primary-color)",
-      boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-      borderRadius: "16px",
-      padding:"15px 30px",
-      color:"#ffff",
-      minWidth: "120px",
+    boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
 
+    borderRadius: "16px",
+
+    padding: "15px 30px",
+
+    color: "#ffff",
+
+    minWidth: "120px",
+
+    borderColor: "#fff",
+  };
+  const variantStyles = {
+    primary: {
+      backgroundColor: "var(--primary-color)",
     },
     secondary: {
-      backgroundColor:"var(--primary-color)",
-      boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-      borderRadius: "16px",
-      padding:"15px 30px"
+      backgroundColor: "var(--main-bg-color)",
+      borderColor: "#CBD5E1",
+      color: "var(--text-color-4)",
+      borderWidth:"2px"
     },
-  }
+  };
   return (
-    <button type="button" className={`fs-${fontSize} w-${fontWight} p-${padding}`} style={baseStyles[variant]}>{text}</button>
-  )
+    <button
+      type="button"
+      className={`fs-${fontSize} w-${fontWight}`}
+      style={{  ...baseStyles, ...variantStyles[variant] , ...styles}}
+    >
+      {text}
+    </button>
+  );
 }
 
-
-export default Button
+export default Button;

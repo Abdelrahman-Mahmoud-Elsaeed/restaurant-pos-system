@@ -11,9 +11,26 @@
 
 
 
-function Taps({fontSize=4,bgColor="--primary-color",fontWight="normal",padding="3", text="hello"}) {
+function Taps({fontSize=4,fontWight="normal", text="hello",variant="primary",styles}) {
+  const baseStyles = {
+    padding: "12px 24px",
+    minWidth: "100px",
+    boxShadow: "0px 1px 2px rgba(127, 29, 29, 0.2)",
+    borderRadius: "8px",
+    border:"2px solid transparent"
+  };
+  const variantStyles = {
+    primary: {
+      backgroundColor: "var(--primary-color)",
+    },
+    secondary: {
+      backgroundColor: "var(--main-bg-color)",
+      borderColor: "#CBD5E1",
+      color: "var(--text-color-2)",
+    },
+  }
   return (
-    <span className={`badge fs-${fontSize} fw-${fontWight} p-${padding}`} style={{backgroundColor: `var(${bgColor})`}}>{text}</span>
+    <span className={`badge fs-${fontSize} fw-${fontWight}`} style={{...baseStyles,...variantStyles[variant],...styles}}>{text}</span>
   )
 }
 

@@ -6,8 +6,8 @@ function App() {
 
   return (
     <>
-      <Button variant="primary"></Button>
-      {/* <Taps></Taps> */}
+      <Button variant="secondary"></Button>
+      <Taps variant="primary"></Taps>
     </>
   )
 }
