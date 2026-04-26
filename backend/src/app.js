@@ -5,6 +5,12 @@ const app = express();
 
 await connectDB();
 
+// middellwares 
+app.use(express.json());
+
+// routes
+const authRoute = require("./routes/auth.route.js");
+app.use("/api/auth",authRoute);
 
 
 process.on("SIGINT", async () => {
