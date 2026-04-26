@@ -11,22 +11,21 @@
 function Button({
   fontSize = 4,
   fontWight = "normal",
-  text = "primary",
-  variant,
+  text = "Button",
+  variant = "primary",
   styles,
 }) {
   const baseStyles = {
-    boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+    boxShadow: "0px 0px 2px 2px rgba(0, 0, 0, 0.05)",
 
     borderRadius: "16px",
 
-    padding: "15px 30px",
-
+    padding: "12px 24px",
+    whiteSpace:"nowrap",
     color: "#ffff",
-
     minWidth: "120px",
-
-    borderColor: "#fff",
+    borderStyle:"solid",
+    borderColor: "transparent",
   };
   const variantStyles = {
     primary: {
