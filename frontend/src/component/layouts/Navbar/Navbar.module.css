@@ -1,0 +1,15 @@
+.searchIcon {
+  top: 50%;
+  left: 6px;
+  transform: translateY(-50%);
+  position: absolute;
+  color: #94A3B8;
+  z-index: 8;
+}
+
+input::placeholder {
+  color :var(--text-color-3)
+
+
+
+}
