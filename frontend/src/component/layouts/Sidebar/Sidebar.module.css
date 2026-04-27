@@ -1,0 +1,72 @@
+aside {
+  height: 100vh;
+  width: 256px;
+}
+
+.dFaShop {
+  background-color: #fee2e2;
+  border-radius: 8px;
+}
+
+.faShop {
+  color: #b7102a;
+}
+
+h3 {
+  color: var(--text-color-1);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.activeLi {
+  color: #fff;
+  background: #b91c1c;
+  border-radius: 8px;
+}
+.activeA {
+  font-size: 14px;
+  color: inherit;
+}
+
+.ReceiptIcon {
+  color: inherit;
+}
+
+.link {
+  color: #475569;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.faReceipt {
+}
+.faBoxArchive {
+}
+.DashboardIcon {
+}
+.faGear {
+}
+.a {
+/* Register */
+
+width: 55.78px;
+height: 20px;
+
+font-family: 'Plus Jakarta Sans';
+font-style: normal;
+font-weight: 500;
+line-height: 20px;
+/* identical to box height, or 143% */
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+z-index: 2;
+
+}
