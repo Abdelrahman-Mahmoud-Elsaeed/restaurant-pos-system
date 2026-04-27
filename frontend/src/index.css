@@ -87,3 +87,9 @@ order: 0;
 flex-grow: 0;
 
 }
+
+
+svg {
+  color: #475569;
+  cursor: pointer;
+}

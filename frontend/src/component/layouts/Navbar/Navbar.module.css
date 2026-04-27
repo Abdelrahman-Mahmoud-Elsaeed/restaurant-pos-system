@@ -1,15 +1,36 @@
-.searchIcon {
-  top: 50%;
-  left: 6px;
-  transform: translateY(-50%);
-  position: absolute;
-  color: #94A3B8;
-  z-index: 8;
+nav {
+  border-bottom: 1px solid #e2e8f0;
 }
 
+
+.iconPos {
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  position: absolute;
+  color: #94a3b8;
+  cursor: unset;
+}
+
+.searchIcon {
+  z-index: 8;
+}
+.iconsGroup {
+  border-right-width: 2px solid #e2e8f0;
+}
+
+input {
+  max-width: 380px;
+  margin: 0 10px;
+  height: 40px;
+  padding: 0 0 0 30px;
+  display: block;
+  width: 100%;
+  font-weight: 400;
+  line-height: 1.5;
+  outline: none;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+}
 input::placeholder {
-  color :var(--text-color-3)
-
-
-
+  color: var(--text-color-3);
 }
