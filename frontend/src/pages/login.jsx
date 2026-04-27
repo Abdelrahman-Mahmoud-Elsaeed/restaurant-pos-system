@@ -54,7 +54,7 @@ export default function Login() {
                 Login <img src={loginicon} />
               </button>
             </form>
-            <div className="d-flex flex-column align-items-center justify-content-end">
+            <div className="d-flex flex-column align-items-center">
               <hr />
               <p className=" ">Need an account? Sign Up</p>
             </div>
