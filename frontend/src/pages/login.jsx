@@ -1,5 +1,9 @@
 import logo from "../assets/images/Background.png";
 import adminicon from "../assets/icons/Icon.png";
+import accessicon from "../assets/icons/pinIcon.png";
+import xicon from "../assets/icons/xIcon.png";
+import yicon from "../assets/icons/yIcon.png";
+import loginicon from "../assets/icons/loginIcon.png";
 import style from "./login.module.css";
 
 export default function Login() {
@@ -18,68 +22,103 @@ export default function Login() {
           <p>Staff & Admin Access</p>
         </div>
         <div className={`row d-flex justify-content-center gap-1`}>
-          <div className={`${style.admin} ${style.forms} col-4`}>
+          <div className={`${style.admin} ${style.forms} col-4 `}>
             <label htmlFor="auth">
-              <img src={adminicon} alt="" />
-              Administrator login
+              <img src={adminicon} alt="" className="me-3" />
+              <span>Administrator login</span>
             </label>
             <hr />
-            <form>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">
+            <form className="mt-5">
+              <div class="mb-3 ">
+                <label for="exampleInputEmail1" className="form-label">
                   Email address
                 </label>
                 <input
                   type="email"
-                  class="form-control"
+                  className={`form-control ${style.inputbg}`}
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                 />
-                <div id="emailHelp" class="form-text">
-                  We'll never share your email with anyone else.
-                </div>
               </div>
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">
+                <label for="exampleInputPassword1" className="form-label">
                   Password
                 </label>
                 <input
                   type="password"
-                  class="form-control"
+                  className={`form-control ${style.inputbg}`}
                   id="exampleInputPassword1"
                 />
               </div>
-              <div class="mb-3 form-check">
-                <input
-                  type="checkbox"
-                  class="form-check-input"
-                  id="exampleCheck1"
-                />
-                <label class="form-check-label" for="exampleCheck1">
-                  Check me out
-                </label>
-              </div>
               <button type="submit" class={` btn ${style.btn}`}>
-                Login
+                Login <img src={loginicon} />
               </button>
             </form>
+            <div className="d-flex flex-column align-items-center justify-content-end">
+              <hr />
+              <p className=" ">Need an account? Sign Up</p>
+            </div>
           </div>
           <div className={`${style.pinaccess} ${style.forms} col-4`}>
             <div className="container text-center">
-              <div className="row">
-                <div className="col"><button className = {`${style.btnn}`}>1</button></div>
-                <div className="col">Column</div>
-                <div className="col">Column</div>
+              <label htmlFor="auth">
+                <img src={accessicon} alt="" className="me-3" />
+                <span>Staff PIN access</span>
+              </label>
+              <hr />
+              <input
+                type="password"
+                className={`${style.formcontrol} `}
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              ></input>
+              <div className="row py-1">
+                <div className="col p-0 ">
+                  <button className={`${style.btnn} btn`}>1</button>
+                </div>
+                <div className="col p-0">
+                  <button className={`${style.btnn}  btn`}>2</button>
+                </div>
+                <div className="col p-0">
+                  <button className={`${style.btnn} btn`}>3</button>
+                </div>
               </div>
-              <div className="row">
-                <div className="col">Column</div>
-                <div className="col">Column</div>
-                <div className="col">Column</div>
+              <div className="row py-1">
+                <div className="col p-0">
+                  <button className={`${style.btnn} btn`}>4</button>
+                </div>
+                <div className="col p-0">
+                  <button className={`${style.btnn} btn`}>5</button>
+                </div>
+                <div className="col p-0">
+                  <button className={`${style.btnn} btn`}>6</button>
+                </div>
               </div>
-              <div className="row">
-                <div className="col">Column</div>
-                <div className="col">Column</div>
-                <div className="col">Column</div>
+              <div className="row py-1">
+                <div className="col p-0">
+                  <button className={`${style.btnn} btn`}>7</button>
+                </div>
+                <div className="col p-0">
+                  <button className={`${style.btnn} btn`}>8</button>
+                </div>
+                <div className="col p-0">
+                  <button className={`${style.btnn} btn`}>9</button>
+                </div>
+              </div>
+              <div className="row py-1">
+                <div className="col p-0">
+                  <button className={`${style.btnn} btn ${style.bgdarker}`}>
+                    <img src={xicon} alt="" />
+                  </button>
+                </div>
+                <div className="col p-0">
+                  <button className={`${style.btnn} btn `}>0</button>
+                </div>
+                <div className="col p-0">
+                  <button className={`${style.btnn} btn ${style.bggreen}`}>
+                    <img src={yicon} alt="" />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
