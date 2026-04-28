@@ -1,44 +1,83 @@
-body{
+body {
+  background-color: var(--surface-color);
+}
+.loginall {
+  margin: 160px 250px;
+  max-width: auto;
+}
+
+.loginpart {
+  color: #8e001b;
+}
+
+.forms {
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--variant-color);
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.pinaccess {
+  background-color: #fff0ef;
+}
+
+.admin {
+  background-color: white;
+}
+
+hr {
+  color: #e4bebc;
+  width: 100%;
+}
+
+.btn {
+  background-color: #8e001b;
+  width: 100%;
+  color: #fff0ef;
+}
+
+.btnn {
+  background-color: #f5dad9;
+  border-style: solid;
+  border-width: 3px;
+  border: #e4bebc;
+  padding: 14px 58px;
+
+  font-size: 25px;
+  font-weight: 700;
+  max-width: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14.5px 62.37px 15.5px 62.38px;
+
+  background: #ffe9e8;
+  border: 1px solid rgba(228, 190, 188, 0.5);
+  border-radius: 8px;
+
+  height: 69.5px;
+}
+
+.bggreen {
+  background-color: #004b5d;
+}
+
+.formcontrol {
+  width: 100%;
+  border-style: none;
+  height: 50px;
+  background-color: #fff0ef;
+}
+
+.bgdarker{
+    background-color: #F9DCDA;
+}
+
+span{
+    font-weight:600;
+}
+
+.inputbg{
     background-color: var(--surface-color);
-}
-.loginall{
-    margin : 200px;
-    max-width: auto;
-}
-
-.loginpart{
-    color: #8E001B;
-}
-
-.forms{
-    border-style: solid;
-    border-width: 1px;
-    border-color: var(--variant-color);
-    padding: 24px;
-    border-radius: 12px;
-}
-
-.pinaccess{
-    background-color: #FFF0EF;
-}
-
-.admin{
-    background-color: white;
-}
- 
-hr{
-    color: #E4BEBC;
-}
-
-.btn{
-    background-color: #8E001B !important;
-    color: #FFF0EF;
-}
-
-
-.btnn{
-    background-color: #f5dad9;
-    border: #E4BEBC80;
-    padding: 20px 40px;
-    font-size: 30px;
 }
