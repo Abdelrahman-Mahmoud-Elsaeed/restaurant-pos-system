@@ -1,4 +1,5 @@
 import Navbar from "../component/layouts/Navbar/Navbar";
+import OverlaySidebar from "../component/layouts/OverlaySidebar/OverlaySidebar.jsx";
 import Sidebar from "../component/layouts/Sidebar/Sidebar";
 import Button from "../component/ui/Button/Button";
 import Taps from "../component/ui/Taps/Taps";
@@ -15,6 +16,7 @@ function App() {
         <div className="w-100">
           <Navbar></Navbar>
           <div>contente</div>
+          <OverlaySidebar></OverlaySidebar>
         </div>
       </div>
     </>

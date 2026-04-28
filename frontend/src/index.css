@@ -20,6 +20,7 @@
   --login-text-color : #8E001B;
 }
 
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -32,8 +33,12 @@ body {
   background-color: var(--main-bg-color);
   line-height: 18px;
   min-height: 100vh;
+  /* position: relative; */
 }
+#root {
+  min-height: 100vh;
 
+}
 .h1 {
   font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 700;
@@ -45,24 +50,31 @@ body {
 .h2 {
   font-weight: 600;
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 18px;
+  font-size: 24px;
   line-height: 25px;
 }
 
 h3 {
   font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 24px;
   color: var(--text-color-2);
+  margin: 0;
 }
 
 p {
   font-family: "Plus Jakarta Sans";
-  font-weight: 700;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--text-color-3);
+}
+span {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 400;
   font-size: 12px;
-  line-height: 12px;
-  letter-spacing: 0.6px;
+  line-height: 16px;
   color: var(--text-color-3);
 }
 

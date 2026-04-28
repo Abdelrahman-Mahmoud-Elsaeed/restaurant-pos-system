@@ -22,7 +22,7 @@ function Sidebar() {
         <div className={`p-2 m-2 ${styles.dFaShop}`}>
           <FontAwesomeIcon icon={faShop} className={styles.faShop} />
         </div>
-        <h3 className="m-0">Kinetic POS</h3>
+        <h3 className={`m-0 ${styles.header}`}>Kinetic POS</h3>
       </div>
       <div className="pt-4 ">
         <ul className="navbar-nav p-3">

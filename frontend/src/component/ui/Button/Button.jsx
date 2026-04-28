@@ -1,8 +1,8 @@
 function Button({
   fontSize = 4,
   fontWight = "normal",
-  text = "Button",
   variant = "primary",
+  children ,
   styles,
 }) {
 
@@ -21,7 +21,9 @@ function Button({
   const baseStyles = {
     fontSize: `${fs}rem`,
     fontWeight: fontWight,
-
+    display: "flex",
+    alignItems: "center" ,
+    justifyContent: "center" ,
     padding: `${0.6}em ${1.2}em`,
 
     minWidth: `${6}em`,
@@ -54,7 +56,7 @@ function Button({
       type="button"
       style={{ ...baseStyles, ...variantStyles[variant], ...styles }}
     >
-      {text}
+      {children}
     </button>
   );
 }
