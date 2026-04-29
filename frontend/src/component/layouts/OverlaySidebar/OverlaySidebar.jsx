@@ -2,13 +2,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan, faCashRegister } from "@fortawesome/free-solid-svg-icons";
 import styles from "./OverlaySidebar.module.css";
 import Button from "../../ui/Button/Button";
+import { useUI } from "../../../context/UiContext";
 
 function OverlaySidebar() {
+  const {ovarlaySidebarState} = useUI()
   return (
     <div
       role="dialog"
       aria-modal="true"
-      className={` ${styles.overlay} vh-100 top-0 end-0 position-absolute`}
+      className={` ${styles.overlay} ${ovarlaySidebarState ? "d-block":"d-none"} vh-100 top-0 end-0 position-absolute`}
     >
       <div className="d-flex align-items-start w-100 h-100 flex-column">
         <div

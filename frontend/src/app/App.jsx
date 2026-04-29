@@ -3,20 +3,22 @@ import OverlaySidebar from "../component/layouts/OverlaySidebar/OverlaySidebar.j
 import Sidebar from "../component/layouts/Sidebar/Sidebar";
 import Button from "../component/ui/Button/Button";
 import Taps from "../component/ui/Taps/Taps";
+import { useUI } from "../context/UiContext.jsx";
 
 import Login from "../pages/login";
 
 function App() {
+  const {ovarlaySidebarState, setOvarlaySidebarState} = useUI()
   return (
     <>
-      <div className="d-flex">
+      <div className="d-flex min-100vh" >
         <div>
           <Sidebar></Sidebar>
         </div>
-        <div className="w-100">
+        <div className="w-100" onClick={()=> ovarlaySidebarState ? setOvarlaySidebarState(!ovarlaySidebarState) : null}>
           <Navbar></Navbar>
           <div>contente</div>
-          <OverlaySidebar></OverlaySidebar>
+          <OverlaySidebar onClick={ (e)=> e.stopPropagation() }></OverlaySidebar>
         </div>
       </div>
     </>

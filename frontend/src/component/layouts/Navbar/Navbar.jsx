@@ -11,7 +11,8 @@ import { useUI } from "../../../context/UiContext";
 
 function Navbar() {
   const { sidebarState, setSidebarState } = useUI(); 
-  console.log(sidebarState)
+  const {ovarlaySidebarState, setOvarlaySidebarState} = useUI()
+
   return (
     <>
       <nav className="d-flex py-2 px-4">
@@ -45,7 +46,9 @@ function Navbar() {
               <FontAwesomeIcon icon={faMoon} className="fs-4" />
               <FontAwesomeIcon icon={faCircleUser} className="fs-4" />
             </div>
-            <Button fontSize={6} text="New Order"></Button>
+            <Button fontSize={6}  onClick={()=> ovarlaySidebarState ? null : setOvarlaySidebarState(!ovarlaySidebarState)}> 
+              New Order
+            </Button>
           </div>
         </div>
       </nav>

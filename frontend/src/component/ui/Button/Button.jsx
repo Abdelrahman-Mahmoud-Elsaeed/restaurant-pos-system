@@ -4,6 +4,7 @@ function Button({
   variant = "primary",
   children ,
   styles,
+  onClick
 }) {
 
   const fontSizeMap = {
@@ -55,6 +56,7 @@ function Button({
     <button
       type="button"
       style={{ ...baseStyles, ...variantStyles[variant], ...styles }}
+      onClick = {onClick}
     >
       {children}
     </button>
