@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import {
   faBell,
   faMoon,
@@ -11,13 +11,13 @@ import { useUI } from "../../../context/UiContext";
 
 function Navbar() {
   const { sidebarState, setSidebarState } = useUI(); 
-  const {ovarlaySidebarState, setOvarlaySidebarState} = useUI()
+  const { setOvarlaySidebarState} = useUI()
 
   return (
     <>
       <nav className="d-flex py-2 px-4">
         <div className="d-flex align-items-center justify-content-center" onClick={()=> setSidebarState(!sidebarState)}>
-          <FontAwesomeIcon icon={faBars} className="fs-4" />
+          <FontAwesomeIcon icon={sidebarState ? faX : faBars} className="fs-4" />
         </div>
         <div className="d-flex justify-content-between w-100">
           <div className="input-group position-relative align-items-center d-sm-block d-none">
@@ -46,7 +46,7 @@ function Navbar() {
               <FontAwesomeIcon icon={faMoon} className="fs-4" />
               <FontAwesomeIcon icon={faCircleUser} className="fs-4" />
             </div>
-            <Button fontSize={6}  onClick={()=> ovarlaySidebarState ? null : setOvarlaySidebarState(!ovarlaySidebarState)}> 
+            <Button fontSize={6}  onClick={()=> setOvarlaySidebarState(true)}> 
               New Order
             </Button>
           </div>

@@ -5,7 +5,7 @@ import Button from "../../ui/Button/Button";
 import { useUI } from "../../../context/UiContext";
 
 function OverlaySidebar() {
-  const {ovarlaySidebarState} = useUI()
+  const {ovarlaySidebarState, setOvarlaySidebarState} = useUI()
   return (
     <div
       role="dialog"
@@ -20,7 +20,7 @@ function OverlaySidebar() {
             <h3>Current Order</h3>
             <span>Order #4092 • Dine-in</span>
           </div>
-          <div className="NavIcon p-2 mx-2">
+          <div className="NavIcon p-2 mx-2" onClick={()=>{ setOvarlaySidebarState(false) }}>
             <FontAwesomeIcon icon={faTrashCan} className={styles.trashIcon} />
           </div>
         </div>
