@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-import {BCRYPT_SALT_ROUNDS} from "../config/env.js";
+import { BCRYPT_SALT_ROUNDS } from "../config/env.js";
 
-// user model had >> user name , mobile , email , password 
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -10,7 +9,7 @@ const userSchema = new mongoose.Schema({
         trim: true,
     },
     mobile: {
-        type: Number,
+        type: String, 
         required: true,
     },
     email: {
@@ -24,22 +23,33 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         select: false,
+    },
+    role: {
+        type: String,
+        enum: ['manager', 'cashier', 'user'], 
+        default: 'user'
+    },
+    isDeleted: {
+        type: Boolean,
+        default: false,
+        select: false 
+    },
+    deletedAt: {
+        type: Date,
+        default: null
     }
-}
-    , { timestamps: true });
+}, { timestamps: true });
 
-
-schema.pre("save", async function(next) {
-  if (!this.isModified("password")) return next();
-  try {
-    //! protecting against brute-force attacks. >> recommended
-    const salt = await bcrypt.genSalt(BCRYPT_SALT_ROUNDS);
-    this.password = await bcrypt.hash(this.password, salt);
-    return next();
-  } catch (error) {
-    return next(error);
-  }
+userSchema.pre("save", async function(next) {
+    if (!this.isModified("password")) return next();
+    try {
+        const salt = await bcrypt.genSalt(Number(BCRYPT_SALT_ROUNDS));
+        this.password = await bcrypt.hash(this.password, salt);
+        return next();
+    } catch (error) {
+        return next(error);
+    }
 });
 
-const model = mongoose.model("User",userSchema);
+const model = mongoose.model("User", userSchema);
 module.exports = model;
