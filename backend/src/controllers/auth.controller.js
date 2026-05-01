@@ -1,7 +1,7 @@
 // user model 
-const User = require("../models/user.model");
-const bcrypt = require('bcrypt');
-const generateToken = require("../utils/Jwt-genration");
+import User from "../models/user.model.js";
+import bcrypt from 'bcrypt';
+import generateToken  from "../utils/Jwt-genration.js";
 
 // controller for login 
 const loginController = async function (req, res) {
@@ -89,4 +89,4 @@ const moveToBin = async function (req, res) {
 }
 
 // export 
-module.exports = { loginController, registerController, moveToBin };
+export  { loginController, registerController, moveToBin };

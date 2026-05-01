@@ -1,5 +1,7 @@
 import express from "express";
+
 import { connectDB,disconnectDB } from "./config/db.js";
+import authRoute  from "./routes/auth.route.js";
 
 const app = express();
 
@@ -9,7 +11,6 @@ await connectDB();
 app.use(express.json());
 
 // routes
-const authRoute = require("./routes/auth.route.js");
 app.use("/api/auth",authRoute);
 
 
