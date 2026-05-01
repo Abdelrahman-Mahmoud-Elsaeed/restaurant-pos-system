@@ -1,5 +1,5 @@
 // require joi
-const joi = require('joi');
+import joi from'joi' ;
 
 // schema 
 const loginSchema = joi.object({

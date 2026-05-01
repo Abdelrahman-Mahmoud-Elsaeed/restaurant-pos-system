@@ -1,16 +1,17 @@
-
-//express >>router 
-
-const express = require('express');
+// express >> router 
+import express from 'express';
 const router = express.Router();
 
 // require controllers 
+import { 
+    loginController, 
+    registerController, 
+    moveToBin 
+} from "../controllers/auth.controller.js";
 
-const{loginController,registerController} = require("../controllers/auth.controller")
+ router.post("/signup", registerController);
+router.post("/login", loginController);
 
-// routers auth >> login , signup 
-router.post("signup",registerController);
-router.post("login" , loginController);
-npm,
-// export 
-module.exports = router
+ router.patch("/delete-user/:id", moveToBin);
+
+export default router;
