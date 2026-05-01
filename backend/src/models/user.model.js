@@ -26,8 +26,13 @@ const userSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ['manager', 'cashier', 'user'], 
-        default: 'user'
+        enum: ['manager', 'cashier'], 
+        default: 'cashier'
+    },
+    pin : {
+        type : Number,
+        max: 9999,
+        unique: true
     },
     isDeleted: {
         type: Boolean,

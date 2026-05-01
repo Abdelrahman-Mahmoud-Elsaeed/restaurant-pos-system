@@ -88,5 +88,30 @@ const moveToBin = async function (req, res) {
     }
 }
 
+
+const loginWithPinController = async function (req, res) {
+    try {
+        const { pin } = req.body;
+        
+        // find user (ensure user is not deleted)
+        const user = await User.findOne({ pin });
+        
+        // if not exist 
+        if (!user) {
+            return res.status(404).json({ msg: "User not found or account deleted" });
+        }
+
+        // generate token with id and role
+        const token = generateToken({ id: user._id, role: user.role });
+
+        // hide password from response
+        user.password = undefined;
+
+        return res.status(200).json({ msg: "Login success", user, token });
+        
+    } catch (error) {
+        return res.status(500).json({ msg: "Server Error", error: error.message });
+    }
+}
 // export 
 export  { loginController, registerController, moveToBin };
