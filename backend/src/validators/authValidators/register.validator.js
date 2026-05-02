@@ -1,5 +1,5 @@
 // require joi
-const joi = require('joi');
+import joi from 'joi';
 
 // schema 
 const registerSchema = joi.object({
@@ -9,4 +9,4 @@ const registerSchema = joi.object({
     password: joi.string().min(6).required(),
 });
 // export schema 
-module.exports = {registerSchema};
+export default registerSchema;

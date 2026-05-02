@@ -1,17 +1,16 @@
 import express from "express";
 import { connectDB,disconnectDB } from "./config/db.js";
+import authRoute from "./routes/auth.route.js";
 
 const app = express();
 
-await connectDB();
 
-// middellwares 
 app.use(express.json());
 
-// routes
-const authRoute = require("./routes/auth.route.js");
-app.use("/api/auth",authRoute);
+await connectDB();
 
+ 
+app.use("/api/auth",authRoute);
 
 process.on("SIGINT", async () => {
   await disconnectDB();
@@ -20,3 +19,12 @@ process.on("SIGINT", async () => {
 
 
 export default app
+
+// { "name":"hager sherif",
+// "mobile":1234567890,
+// "email":"hager12@gmail.com",
+// "password":"123456789" }
+// {
+// "email":"hager12@gmail.com",
+// "password":"123456789" 
+// }
