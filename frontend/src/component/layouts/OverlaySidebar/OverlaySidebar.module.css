@@ -1,0 +1,37 @@
+.overlay {
+  width: 50%;
+  max-width: 380px;
+  border-left: 1px solid #e2e8f0;
+  background-color: #fff;
+}
+
+.headerNav {
+  border-bottom: 1px solid #e2e8f0;
+  background: #f8fafc80;
+  backdrop-filter: blur(2px);
+}
+
+.NavBody {
+  background-color: #F8FAFC;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+
+.trashIcon {
+  color :#94A3B8;
+}
+
+.subtotal {
+  border-bottom: 1px dashed #E2E8F0;
+}
+
+.total h3{
+  color: #B91C1C;
+}
+
+.checkout svg{
+  color :inherit;
+}
+.checkout h3{
+  color :inherit;
+}
