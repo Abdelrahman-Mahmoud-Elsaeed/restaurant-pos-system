@@ -12,10 +12,4 @@ export default defineConfig({
     [svgr()],
     babel({ presets: [reactCompilerPreset()] })
   ],
-  // resolve: {
-  //   alias: {
-  //     "@":  path.join(__dirname,"./src"),
-  //     "@ui":  path.join(__dirname,"./src/component/ui"),
-  //   }
-  // }
 })
