@@ -1,23 +1,23 @@
 import mongoose from "moongose"
-const Product_Schema=new moongose.Schema({
+const Product_Schema=new mongoose.Schema({
   name:{
     type :String,
-    require : true
+    required : true
   },
   price:{
     type : Number,
-    require : true
+    required : true
   },
   stock:{
     type : Number,
-    require : true
+    required : true
   },
   category:{
     type : String,
-    require : true
+    required : true
   }
 
 })
-const model_Product=moongose.model("Product" , Product_Schema)
+const model_Product=mongoose.model("Product" , Product_Schema)
 
 export default Product_Schema
