@@ -15,8 +15,12 @@ function App() {
         </div>
         <div className="w-100" >
           <Navbar></Navbar>
-          <div>contente</div>
-          <OverlaySidebar></OverlaySidebar>
+          <div>
+            <Taps text="All Items" variant="secondary"></Taps>
+          </div>
+          <OverlaySidebar>
+            
+          </OverlaySidebar>
         </div>
       </div>
     </>

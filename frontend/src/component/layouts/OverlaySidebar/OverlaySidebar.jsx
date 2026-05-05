@@ -3,6 +3,7 @@ import { faTrashCan, faCashRegister } from "@fortawesome/free-solid-svg-icons";
 import styles from "./OverlaySidebar.module.css";
 import Button from "../../ui/Button/Button";
 import { useUI } from "../../../context/UiContext";
+import Cartitem from "../../ui/Cartitem/Cartitem";
 
 function OverlaySidebar() {
   const {ovarlaySidebarState, setOvarlaySidebarState} = useUI()
@@ -24,7 +25,13 @@ function OverlaySidebar() {
             <FontAwesomeIcon icon={faTrashCan} className={styles.trashIcon} />
           </div>
         </div>
-        <div className={`${styles.NavBody} w-100 h-100`}></div>
+        <div className={`${styles.NavBody} w-100 h-100`}>
+          {/* our cart items 
+          //  */
+          }
+          <Cartitem
+          ></Cartitem>
+        </div>
         <div className={` totalWapper p-4 w-100 ${styles.NavFooter}`}>
           <div className={`${styles.subtotal}`}>
             <div className="d-flex justify-content-between align-items-center my-2">
