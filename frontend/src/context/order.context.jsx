@@ -1,7 +1,7 @@
 import { createContext } from "react";
 import { useOrder } from "../hooks/order.hook";
 
-export const  OrderProvider = (children) => {
+export const  OrderProvider = ({children}) => {
   const order = useOrder()
     return (
       <OrderContext.Provider value={ order }>
