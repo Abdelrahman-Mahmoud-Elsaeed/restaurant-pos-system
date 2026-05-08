@@ -3,6 +3,7 @@ import OverlaySidebar from "../component/layouts/OverlaySidebar/OverlaySidebar.j
 import Sidebar from "../component/layouts/Sidebar/Sidebar";
 import Button from "../component/ui/Button/Button";
 import Taps from "../component/ui/Taps/Taps";
+import KitchenPos from "../pages/KitchenPos/KitchenPos.jsx";
 
 import Login from "../pages/login";
 
@@ -15,7 +16,7 @@ function App() {
         </div>
         <div className="w-100" >
           <Navbar></Navbar>
-          <div>contente</div>
+          <KitchenPos/>
           <OverlaySidebar></OverlaySidebar>
         </div>
       </div>
