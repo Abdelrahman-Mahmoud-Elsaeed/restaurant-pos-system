@@ -1,0 +1,70 @@
+.customCard {
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: 0.3s;
+}
+/* .customCard:hover {
+    transform: translateY(-5px);
+} */
+.imageContainer {
+    position: relative;
+}
+.imageContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.tag {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.popular{
+  background-color:#FFFFFFF2;
+  border: #FEE2E2;
+  color: #B91C1C;
+}
+.spicy{
+  background-color:#DC2626;
+  color: #FFFFFF;
+}
+.warning{
+  background-color:#FEF3C7;
+  border: #FDE68A;
+  color: #78350F;
+}
+.new{
+  background-color:#22C55E;
+}
+.title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+.description {
+    color: var(--text-color-2);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+.price {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 20px;
+}
+.addBtn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: #FEE2E2;
+    color: var(--primary-color);
+    font-size: 22px;
+    cursor: pointer;
+}
