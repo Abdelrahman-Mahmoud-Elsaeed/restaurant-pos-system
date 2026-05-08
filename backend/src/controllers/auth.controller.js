@@ -59,9 +59,8 @@ const registerController = async function (req, res) {
 
         // hide password from response
         newUser.password = undefined;
-
-        return res.status(201).json({ msg: "User created successfully", user: newUser });
-        
+        const token = generateToken({ id: user._id, role: user.role });
+        return res.status(200).json({ msg: "User created successfully", user: newUser , token });
     } catch (error) {
         return res.status(500).json({ msg: "Server Error", error: error.message });
     }
