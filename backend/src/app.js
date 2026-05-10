@@ -6,7 +6,7 @@ import productRoute  from "./routes/product.route.js";
 import orderRoute  from "./routes/order.route.js";
 import {getAllproducts, CreateProduct ,getproductbyid, UpdateProduct , DeleteProduct} from "./controllers/product.controller.js"
 import {getAllorders,getorderbyid,UpdateOrder,CreateOrder,DeleteOrder} from "./controllers/order.controller.js"
-
+import {globalErrorHandler} from "./middlewares/globalErrorHandler.js"
 const app = express();
 
 await connectDB();
@@ -18,6 +18,7 @@ app.use(express.json());
 app.use("/api/auth",authRoute);
 app.use("/api/menue",productRoute);
 app.use("/api/order",orderRoute);
+app.use(globalErrorHandler);
 
 
 process.on("SIGINT", async () => {
