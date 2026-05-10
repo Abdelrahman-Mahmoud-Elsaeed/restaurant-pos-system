@@ -7,4 +7,4 @@ const loginSchema = joi.object({
     password: joi.string().min(6).required(),
 });
 // export schema 
-module.exports = {loginSchema};
+export default loginSchema;

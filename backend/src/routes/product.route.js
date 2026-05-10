@@ -9,6 +9,11 @@ import {
     DeleteProduct,
     CreateProduct
 } from "../controllers/product.controller.js";
+ 
+// require validation middleware and validators
+
+import validate from '../middlewares/validation.middleware.js';
+import Product_Schema from "../validators/Product.validator.js";
 
 router.get('/',getAllproducts);
 router.get('/:id',getproductbyid);
