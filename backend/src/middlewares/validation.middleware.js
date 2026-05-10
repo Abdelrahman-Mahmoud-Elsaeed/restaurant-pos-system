@@ -1,7 +1,7 @@
 const validate = (schema) => {
   return (req, res, next) => {
 
-    const data = {body: req.body,};
+    const data = { body: req.body, };
 
     const { error } = schema.validate(data, {
       abortEarly: false,
