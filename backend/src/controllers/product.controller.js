@@ -1,91 +1,52 @@
 import Product_Schema from "../models/product.model.js";
+import sendResponse from "../utils/sendResponse.js";
 
 export const getAllproducts = async (req, res) => {
-  try {
-    const products = await Product_Schema.find();
+  const products = await Product_Schema.find();
 
-    res.status(200).json({
-      success: true,
-      data: products
-    });
-
-  } catch (error) {
-    console.error("ERROR", error.message);
-
-    res.status(500).json({
-      success: false,
-      message: error.message 
-    });
+  if (!products) {
+    return sendResponse(res, 200, "there is no products");
   }
+
+  return sendResponse(res, 200, "get all products successfully", {
+    products,
+  });
 };
 
 export const getproductbyid = async (req, res) => {
-  try {
-    const product = await Product_Schema.findById(req.params.id)
-
-    res.status(200).json({
-      success: true,
-      data: product
-    });
-
-  } catch (error) {
-    console.error("ERROR", error.message);
-
-    res.status(500).json({
-      success: false,
-      message: error.message   
-    });
+  const product = await Product_Schema.findById(req.params.id);
+  if (!product) {
+    return sendResponse(res, 404, "product not found ");
   }
+
+  return sendResponse(res, 200, "get product successfully", { product });
 };
 
-export const UpdateProduct = async (req, res) => {
-  try {
-    const product = await Product_Schema.findByIdAndUpdate(req.params.id,req.body,{ new: true });
-
-    res.status(200).json({
-      success: true,
-      data: product
-    });
-
-  } catch (error) {
-    console.error("ERROR", error.message);
-
-    res.status(500).json({
-      success: false,
-      message: error.message 
-    });
+export const updateProduct = async (req, res) => {
+  const product = await Product_Schema.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true },
+  );
+  if (!product) {
+    return sendResponse(res, 404, "product not found ");
   }
+  return sendResponse(res, 200, "update product successfully", { product });
 };
 
-
-export const CreateProduct = async (req, res) => {
-  try {
-    const product = await Product_Schema.create({...req.body});
-
-    res.status(200).json({
-      success: true,
-      data: product
-    });
-
-  } catch (error) {
-    console.error("ERROR", error.message);
-
-    res.status(500).json({
-      success: false,
-      message: error.message 
-    });
-  }
+export const createOrder = async (req, res) => {
+  const product = await Product_Schema.create({ ...req.body });
+  return sendResponse(res, 200, "create product successfully", {
+    product,
+  });
 };
 
-export const DeleteProduct = async (req,res) =>{
-    try{
-        const product =  await Product_Schema.findByIdAndDelete(req.params.id)
-        res.status(200).json({message : "deleted", data : product})
-    }
-    catch(error){
-        console.error("Error" , error.message);
-        res.status(200).json({
-            message : error.message
-        })
-    }
-}
+export const deleteProduct = async (req, res) => {
+  const product = await Product_Schema.findByIdAndDelete(req.params.id);
+  if (!product) {
+    return sendResponse(res, 404, "product not found ");
+  }
+  return sendResponse(res, 200, "deleted product successfully", {
+    product,
+  });
+};
