@@ -1,13 +1,9 @@
 import mongoose from "mongoose";
 
 const order_item = new mongoose.Schema({
-  orderid: {
-    type: String,
-    required: true,
-  },
-  itemid: {
-    type: String,
-    required: true,
+  productId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Products",
   },
   quantity: {
     type: Number,
@@ -17,13 +13,13 @@ const order_item = new mongoose.Schema({
     type: Number,
     required: true,
   },
-});
+},{ _id: false });
 
 const Orderschema = new mongoose.Schema(
   {
     author: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      ref: "Users",
     },
     totalamount: {
       type: Number,
@@ -31,11 +27,20 @@ const Orderschema = new mongoose.Schema(
     },
     status: {
       type: String,
-      required: true,
+      enum: ["pending", "paid", "completed", "cancelled"],
+      default: "pending",
     },
-    allorder_items: { order_item },
+    allorder_items: [order_item],
   },
   { timestamps: true },
 );
+
+Orderschema.pre("save", function () {
+  this.totalamount = this.allorder_items.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0,
+  );
+});
+
 const model_order = mongoose.model("Orders", Orderschema);
 export default model_order;
