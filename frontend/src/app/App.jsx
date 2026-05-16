@@ -6,7 +6,7 @@ import Taps from "../component/ui/Taps/Taps";
 import KitchenPos from "../pages/KitchenPos/KitchenPos.jsx";
 
 import Login from "../pages/login";
-
+import OrderCard from "../component/ui/OrderDetails/OrderDetails";
 function App() {
   return (
     <>
@@ -19,7 +19,9 @@ function App() {
           <KitchenPos/>
           <OverlaySidebar></OverlaySidebar>
         </div>
-      </div>
+      </div> 
+      
+
     </>
   );
 }
