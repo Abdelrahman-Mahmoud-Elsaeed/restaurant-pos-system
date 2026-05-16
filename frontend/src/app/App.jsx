@@ -10,7 +10,7 @@ import OrderCard from "../component/ui/OrderDetails/OrderDetails";
 function App() {
   return (
     <>
-      <div className="d-flex min-100vh" >
+      {/* <div className="d-flex min-100vh" >
         <div>
           <Sidebar></Sidebar>
         </div>

@@ -47,6 +47,7 @@ const registerController = async function (req, res) {
         if (userExist) {
             return res.status(400).json({ msg: "User already exist" });
         }
+        
 
         // if not exist >> create user 
         const newUser = await User.create({ 
@@ -56,9 +57,12 @@ const registerController = async function (req, res) {
             password, 
             role 
         });
+        console.log("user created")
 
         // hide password from response
         newUser.password = undefined;
+      
+        
         const token = generateToken({ id: user._id, role: user.role });
         return res.status(200).json({ msg: "User created successfully", user: newUser , token });
     } catch (error) {
