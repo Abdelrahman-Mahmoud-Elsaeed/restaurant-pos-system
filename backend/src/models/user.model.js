@@ -1,5 +1,5 @@
-import mongoose from'mongoose';
-import bcrypt from'bcrypt';
+import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
 import { BCRYPT_SALT_ROUNDS } from "../config/env.js";
 
 const userSchema = new mongoose.Schema({
@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
         trim: true,
     },
     mobile: {
-        type: String, 
+        type: String,
         required: true,
     },
     email: {
@@ -26,18 +26,18 @@ const userSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ['manager', 'cashier'], 
+        enum: ['manager', 'cashier'],
         default: 'cashier'
     },
-    pin : {
-        type : Number,
+    pin: {
+        type: Number,
         max: 9999,
         unique: true
     },
     isDeleted: {
         type: Boolean,
         default: false,
-        select: false 
+        select: false
     },
     deletedAt: {
         type: Date,
@@ -45,16 +45,27 @@ const userSchema = new mongoose.Schema({
     }
 }, { timestamps: true });
 
-userSchema.pre("save", async function(next) {
-    if (!this.isModified("password")) return next();
-    try {
-        const salt = await bcrypt.genSalt(Number(BCRYPT_SALT_ROUNDS));
-        this.password = await bcrypt.hash(this.password, salt);
-        return next();
-    } catch (error) {
-        return next(error);
-    }
-});
+// userSchema.pre("save", async function(next) {
+//     if (!this.isModified("password")) return next();
+//     try {
+//         const salt = await bcrypt.genSalt(Number(BCRYPT_SALT_ROUNDS));
+//         this.password = await bcrypt.hash(this.password, salt);
+//         return next();
+//     } catch (error) {
+//         return next(error);
+//     }
+// });
 
-const model = mongoose.model("User", userSchema);
+userSchema.pre('save', async function () {
+    if (this.isModified('password')) {
+        const salt = await bcrypt.genSalt(Number(BCRYPT_SALT_ROUNDS));
+
+        this.password = await bcrypt.hash(this.password, salt);
+    }
+
+    this.updatedAt = Date.now();
+});
+const model = mongoose.model("Users", userSchema);
 export default model;
+
+// 
