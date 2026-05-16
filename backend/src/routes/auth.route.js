@@ -1,20 +1,18 @@
-// express >> router 
-import express from 'express';
+// express >> router
+import express from "express";
 const router = express.Router();
 
-// require controllers 
-import { 
-    loginController, 
-    registerController, 
-    moveToBin 
+import {
+  loginController,
+  registerController,
+  moveToBin,
 } from "../controllers/auth.controller.js";
 
-import { authMiddelware } from "../middlewares/auth.middleware.js"
-import {premitMiddelware} from "../middlewares/premitMiddelware.js"
+import asyncHandler from "../utils/asyncHandlar.js";
 
- router.post("/signup", registerController);
-router.post("/login",authMiddelware,premitMiddelware("manager"), loginController);
+router.post("/signup", asyncHandler(registerController));
+router.post("/login", asyncHandler(loginController));
 
- router.patch("/delete-user/:id", moveToBin);
+router.patch("/delete-user/:id", asyncHandler(moveToBin));
 
 export default router;
