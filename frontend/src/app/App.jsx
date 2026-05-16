@@ -6,11 +6,11 @@ import Taps from "../component/ui/Taps/Taps";
 import KitchenPos from "../pages/KitchenPos/KitchenPos.jsx";
 
 import Login from "../pages/login";
-
+import OrderCard from "../component/ui/OrderDetails/OrderDetails";
 function App() {
   return (
     <>
-      <div className="d-flex min-100vh" >
+      {/* <div className="d-flex min-100vh" >
         <div>
           <Sidebar></Sidebar>
         </div>
@@ -19,7 +19,9 @@ function App() {
           <KitchenPos/>
           <OverlaySidebar></OverlaySidebar>
         </div>
-      </div>
+      </div> 
+      
+
     </>
   );
 }
