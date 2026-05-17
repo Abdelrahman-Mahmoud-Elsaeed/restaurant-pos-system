@@ -1,11 +1,13 @@
-import Product_Schema from "../models/product.model.js";
+import Product from "../models/product.model.js";
 import sendResponse from "../utils/sendResponse.js";
 
 export const getAllproducts = async (req, res) => {
-  const products = await Product_Schema.find();
+  const products = await Product.find().sort({ createdAt: -1 });
 
-  if (!products) {
-    return sendResponse(res, 200, "there is no products");
+  if (!products.length) {
+    return sendResponse(res, 200, "there are no products", {
+      products: [],
+    });
   }
 
   return sendResponse(res, 200, "get all products successfully", {
@@ -14,38 +16,51 @@ export const getAllproducts = async (req, res) => {
 };
 
 export const getproductbyid = async (req, res) => {
-  const product = await Product_Schema.findById(req.params.id);
+  const product = await Product.findById(req.params.id);
+
   if (!product) {
-    return sendResponse(res, 404, "product not found ");
+    return sendResponse(res, 404, "product not found");
   }
 
-  return sendResponse(res, 200, "get product successfully", { product });
+  return sendResponse(res, 200, "get product successfully", {
+    product,
+  });
+};
+
+export const createProduct = async (req, res) => {
+  const product = await Product.create(req.body);
+
+  return sendResponse(res, 201, "create product successfully", {
+    product,
+  });
 };
 
 export const updateProduct = async (req, res) => {
-  const product = await Product_Schema.findByIdAndUpdate(
+  const product = await Product.findByIdAndUpdate(
     req.params.id,
     req.body,
-    { new: true },
+    {
+      new: true,
+      runValidators: true,
+    }
   );
-  if (!product) {
-    return sendResponse(res, 404, "product not found ");
-  }
-  return sendResponse(res, 200, "update product successfully", { product });
-};
 
-export const createOrder = async (req, res) => {
-  const product = await Product_Schema.create({ ...req.body });
-  return sendResponse(res, 200, "create product successfully", {
+  if (!product) {
+    return sendResponse(res, 404, "product not found");
+  }
+
+  return sendResponse(res, 200, "update product successfully", {
     product,
   });
 };
 
 export const deleteProduct = async (req, res) => {
-  const product = await Product_Schema.findByIdAndDelete(req.params.id);
+  const product = await Product.findByIdAndDelete(req.params.id);
+
   if (!product) {
-    return sendResponse(res, 404, "product not found ");
+    return sendResponse(res, 404, "product not found");
   }
+
   return sendResponse(res, 200, "deleted product successfully", {
     product,
   });
