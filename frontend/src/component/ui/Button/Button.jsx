@@ -1,67 +1,19 @@
-function Button({
-  fontSize = 4,
-  fontWight = "normal",
-  variant = "primary",
-  children ,
-  styles,
-  onClick
+import styles from "./Button.module.css";
+
+export default function Button({
+  children,
+  variant = "primary", // 'primary', 'secondary', or 'danger'
+  size = "md",         // 'sm', 'md', or 'lg'
+  onClick,
+  className = ""       // Allow passing extra classes if needed
 }) {
-
-  const fontSizeMap = {
-    1: 2.5,
-    2: 2,
-    3: 1.75,
-    4: 1.5,
-    5: 1.25,
-    6: 1,
-    7: 0.5,
-  };
-
-  const fs = fontSizeMap[fontSize] || 1.5;
-
-  const baseStyles = {
-    fontSize: `${fs}rem`,
-    fontWeight: fontWight,
-    display: "flex",
-    alignItems: "center" ,
-    justifyContent: "center" ,
-    padding: `${0.6}em ${1.2}em`,
-
-    minWidth: `${6}em`,
-
-    lineHeight: 1.2,
-
-    borderRadius: "0.4em",
-    boxShadow: "0px 0px 2px 2px rgba(0, 0, 0, 0.05)",
-
-    whiteSpace: "nowrap",
-    color: "#fff",
-    borderStyle: "solid",
-    borderColor: "transparent",
-  };
-
-  const variantStyles = {
-    primary: {
-      backgroundColor: "var(--primary-color)",
-    },
-    secondary: {
-      backgroundColor: "var(--main-bg-color)",
-      borderColor: "#CBD5E1",
-      color: "var(--text-color-4)",
-      borderWidth: "0.15em",
-    },
-  };
-
   return (
     <button
       type="button"
-      style={{ ...baseStyles, ...variantStyles[variant], ...styles }}
-      onClick = {onClick}
+      className={`${styles.btnBase} ${styles[variant]} ${styles[size]} ${className}`}
+      onClick={onClick}
     >
       {children}
     </button>
   );
 }
-
-
-export default Button

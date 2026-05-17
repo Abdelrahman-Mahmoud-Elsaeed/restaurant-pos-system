@@ -8,12 +8,12 @@ import {
   getproductbyid,
   updateProduct,
   deleteProduct,
-  createOrder,
+  createProduct,
 } from "../controllers/product.controller.js";
 
-router.get("/",asyncHandler(getAllproducts));
+router.get("/", asyncHandler(getAllproducts));
 router.get("/:id", asyncHandler(getproductbyid));
-router.post("/", asyncHandler(createOrder));
+router.post("/", asyncHandler(createProduct));
 router.patch("/:id", asyncHandler(updateProduct));
 router.delete("/:id", asyncHandler(deleteProduct));
 
