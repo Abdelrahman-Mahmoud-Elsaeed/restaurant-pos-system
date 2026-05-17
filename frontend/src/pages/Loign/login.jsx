@@ -1,10 +1,10 @@
-import logo from "../assets/images/Background.png";
-import adminicon from "../assets/icons/Icon.png";
-import accessicon from "../assets/icons/pinIcon.png";
-import xicon from "../assets/icons/xIcon.png";
-import yicon from "../assets/icons/yIcon.png";
-import loginicon from "../assets/icons/loginIcon.png";
-import style from "./login.module.css";
+import logo from "../../assets/images/Background.png";
+import adminicon from "../../assets/icons/Icon.png";
+import accessicon from "../../assets/icons/pinIcon.png";
+import xicon from "../../assets/icons/xIcon.png";
+import yicon from "../../assets/icons/yIcon.png";
+import loginicon from "../../assets/icons/loginIcon.png";
+import style from "./Login.module.css";
 
 export default function Login() {
   return (

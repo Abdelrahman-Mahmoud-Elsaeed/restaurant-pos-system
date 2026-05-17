@@ -1,0 +1,8 @@
+.dashboard-layout {
+  display: flex;
+  gap: 24px; /* Space between the columns */
+  padding: 32px;
+  align-items: flex-start; /* Ensures columns don't stretch to match each other's height unnecessarily */
+  overflow-x: auto; /* Allows horizontal scrolling if there are many columns */
+  background-color: #FFFFFF; /* Match your app's background */
+}

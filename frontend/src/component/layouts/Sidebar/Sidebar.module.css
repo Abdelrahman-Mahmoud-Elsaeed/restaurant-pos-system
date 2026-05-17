@@ -2,10 +2,34 @@ aside {
   height: 100vh;
   width: 256px;
 }
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 
-.dFaShop {
-  background-color: #fee2e2;
+  padding: 10px;
+  margin: 8px 0;
+
   border-radius: 8px;
+  color: #475569;
+
+  text-decoration: none;
+}
+
+
+.activeLi {
+  background: #b91c1c;
+  color: white;
+}
+
+.linkText {
+  font-size: 14px;
+  color: inherit;
+}
+
+.activeText {
+  color: white;
+  font-weight: 600;
 }
 
 .faShop {
@@ -13,29 +37,131 @@ aside {
 }
 
 .header {
-  color: var(--text-color-1);
   font-size: 18px;
+  font-weight: 700;
+  color: var(--text-color-1);
+}
+
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px;
+  margin: 8px 0;
+
+  border-radius: 8px;
+
+  color: #475569;
+  text-decoration: none;
+}
+
+.active {
+  background: #b91c1c;
+  color: #ffffff;
+}
+
+.navItem svg {
+  color: inherit;
+  fill: currentColor;
+}
+
+.navItem span {
+  color: inherit;
+}
+
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.leftSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.8rem;
   font-weight: 700;
 }
 
-.activeLi {
-  color: #fff;
-  background: #b91c1c;
-  border-radius: 8px;
-}
-.activeA {
-  font-size: 14px;
-  color: inherit;
+.subtitle {
+  margin: 0.3rem 0 0;
+  color: #6b7280;
+  font-size: 0.95rem;
 }
 
-.ReceiptIcon {
-  color: inherit;
+.links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
-.link {
-  color: #475569;
-  text-decoration: none;
-  font-size: 14px;
+.filterButton {
+  border: none;
+  background: #f3f4f6;
+
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+
+  font-weight: 500;
+  cursor: pointer;
+
+  transition: 0.2s ease;
 }
 
+.filterButton:hover {
+  background: #e5e7eb;
+}
 
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.iconButton {
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #f9fafb;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+
+  font-size: 1rem;
+}
+
+.iconButton:hover {
+  background: #e5e7eb;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

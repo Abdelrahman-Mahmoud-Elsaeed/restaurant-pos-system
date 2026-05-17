@@ -1,116 +1,88 @@
-// user model 
 import User from "../models/user.model.js";
-import bcrypt from 'bcrypt';
-import generateToken  from "../utils/Jwt-genration.js";
+import bcrypt from "bcrypt";
+import generateToken from "../utils/Jwt-genration.js";
+import sendResponse from "../utils/sendResponse.js";
 
-// controller for login 
-const loginController = async function (req, res) {
-    try {
-        const { email, password } = req.body;
-        
-        // find user (ensure user is not deleted)
-        const user = await User.findOne({ email, isDeleted: false }).select("+password");
-        
-        // if not exist 
-        if (!user) {
-            return res.status(404).json({ msg: "User not found or account deleted" });
-        }
+const loginController = async function (req, res, next) {
+  const { email, password } = req.body;
 
-        // if exist >>> compare password 
-        const isMatch = await bcrypt.compare(password, user.password);
-        
-        // if match >> generate token
-        if (!isMatch) {
-            return res.status(401).json({ msg: "Invalid email or password" });
-        }
+  const user = await User.findOne({ email, isDeleted: false }).select(
+    "+password",
+  );
 
-        // generate token with id and role
-        const token = generateToken({ id: user._id, role: user.role });
+  if (!user) {
+    return sendResponse(res, 404, "User not found or account deleted");
+  }
 
-        // hide password from response
-        user.password = undefined;
+  const isMatch = await bcrypt.compare(password, user.password);
 
-        return res.status(200).json({ msg: "Login success", user, token });
-        
-    } catch (error) {
-        return res.status(500).json({ msg: "Server Error", error: error.message });
-    }
-}
+  if (!isMatch) {
+    return sendResponse(res, 401, "Invalid email or password");
+  }
 
-// controller for register
+  const token = generateToken({ id: user._id, role: user.role });
+
+  user.password = undefined;
+
+  return sendResponse(res, 200, "Login successfully", { user, token });
+};
+
 const registerController = async function (req, res) {
-    try {
-        const { name, mobile, email, password, role } = req.body;
+  const { name, mobile, email, password, role, pin } = req.body;
 
-        // if user exist
-        const userExist = await User.findOne({ email });
-        if (userExist) {
-            return res.status(400).json({ msg: "User already exist" });
-        }
+  const userExist = await User.findOne({ email });
+  
+  if (userExist) {
+    return sendResponse(res, 400, "User already exist");
+  }
 
-        // if not exist >> create user 
-        const newUser = await User.create({ 
-            name, 
-            mobile, 
-            email, 
-            password, 
-            role 
-        });
+  const newUser = await User.create({
+    name,
+    mobile,
+    email,
+    password,
+    role,
+    pin
+  });
 
-        // hide password from response
-        newUser.password = undefined;
-        const token = generateToken({ id: user._id, role: user.role });
-        return res.status(200).json({ msg: "User created successfully", user: newUser , token });
-    } catch (error) {
-        return res.status(500).json({ msg: "Server Error", error: error.message });
-    }
-}
+  newUser.password = undefined;
+  const token = generateToken({ id: newUser._id, role: newUser.role });
+
+  return sendResponse(res, 200, "User created successfully", {
+    user: newUser,
+    token,
+  });
+};
 
 const moveToBin = async function (req, res) {
-    try {
-        const { id } = req.params;
+  const { id } = req.params;
 
-        const user = await User.findByIdAndUpdate(
-            id, 
-            { isDeleted: true, deletedAt: Date.now() },
-            { new: true }
-        );
+  const user = await User.findByIdAndUpdate(
+    id,
+    { isDeleted: true, deletedAt: Date.now() },
+    { new: true },
+  );
 
-        if (!user) {
-            return res.status(404).json({ msg: "User not found" });
-        }
-
-        return res.status(200).json({ msg: "User moved to bin successfully" });
-
-    } catch (error) {
-        return res.status(500).json({ msg: "Server Error", error: error.message });
-    }
-}
-
+  if (!user) {
+    return sendResponse(res, 404, "User not found");
+  }
+  return sendResponse(res, 200, "User moved to bin successfully");
+};
 
 const loginWithPinController = async function (req, res) {
-    try {
-        const { pin } = req.body;
-        
-        // find user (ensure user is not deleted)
-        const user = await User.findOne({ pin });
-        
-        // if not exist 
-        if (!user) {
-            return res.status(404).json({ msg: "User not found or account deleted" });
-        }
+  const { pin } = req.body;
 
-        // generate token with id and role
-        const token = generateToken({ id: user._id, role: user.role });
+  const user = await User.findOne({ pin });
 
-        // hide password from response
-        user.password = undefined;
+  if (!user) {
+    return sendResponse(res, 404, "User not found or account deleted");
+  }
 
-        return res.status(200).json({ msg: "Login success", user, token });
-        
-    } catch (error) {
-        return res.status(500).json({ msg: "Server Error", error: error.message });
-    }
-}
-// export 
-export  { loginController, registerController, moveToBin };
+  const token = generateToken({ id: user._id, role: user.role });
+
+  user.password = undefined;
+
+  return sendResponse(res, 200, "Login successfully", { user, token });
+};
+
+export { loginController, registerController, moveToBin };

@@ -1,23 +1,24 @@
-import express from 'express';
+import express from "express";
 const router = express.Router();
 
-// require controllers 
+import asyncHandler from "../utils/asyncHandlar.js";
+
 import {
-    getAllorders,
-    getorderbyid,
-    UpdateOrder,
-    DeleteOrder,
-    CreateOrder
+  getAllorders,
+  getorderbyid,
+  updateOrder,
+  deleteOrder,
+  createOrder,
+  updateOrderStatus,
 } from "../controllers/order.controller.js";
 
-// require validation middleware and validators
-import validate from '../middlewares/validation.middleware.js';
-import orderValidator from '../validators/Order.validator.js';
+router.get("/", asyncHandler(getAllorders));
+router.get("/:id", asyncHandler(getorderbyid));
+router.post("/", asyncHandler(createOrder));
 
-router.get('/', getAllorders);
-router.get('/:id', getorderbyid);
-router.post('/', validate(orderValidator.CreateOrder), CreateOrder);
-router.patch('/:id', validate(orderValidator.UpdateOrder), UpdateOrder);
-router.delete('/:id', DeleteOrder);
+router.patch("/:id", asyncHandler(updateOrder));
+router.patch("/:id/status", asyncHandler(updateOrderStatus));
+
+router.delete("/:id", asyncHandler(deleteOrder));
 
 export default router;

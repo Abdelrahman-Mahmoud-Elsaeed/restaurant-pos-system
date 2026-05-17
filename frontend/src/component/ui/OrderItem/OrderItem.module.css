@@ -1,0 +1,73 @@
+.Ordercard{
+    margin: 10px;
+    border-style: solid;
+    border-width: 0.1rem;
+    border-color: rgb(0, 0,0, 0.1);
+    border-radius: 13px;
+    box-shadow: 1px 1px 13px 0px rgb(0,0,0,0.1);
+    overflow: hidden;
+}
+.head{
+    background-color: #F1F5F9;
+}
+
+.code{
+    color: rgb(17, 17, 17);
+    font-size: 24px;
+}
+
+.code2{
+    color: #64748B;
+    font-size: 12px;
+}
+
+.bg{
+    background-color: rgb(247, 155, 155);
+    height: 1.8rem;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    color: rgb(165, 5, 5);
+}
+
+hr{
+    margin: 0px;
+    color: black;
+}
+
+
+.hrvr{
+    width: 3px;       /* Thickness of the line */
+  height: inherit;    /* Length of the line */
+  background-color: #DC2626;
+  /* border: 2px solid red; */
+  border-radius: 12px;
+  margin: 0.5rem;
+  opacity: 1 !important;
+}
+
+
+.sub{
+    color: #DC2626;
+    font-weight:600;
+}
+
+h3{
+    padding-bottom: 5px;
+    color: black;
+    font-weight: 600;
+}
+
+.order{
+    background-color: white;
+    
+}
+
+ul{
+    margin-bottom: 0rem;
+}
+
+.bgRed{
+    background-color: rgb(190, 27, 27);
+}

@@ -1,91 +1,86 @@
-import orders from "../models/order.model.js"
+import Orders from "../models/order.model.js";
+import sendResponse from "../utils/sendResponse.js";
 
 export const getAllorders = async (req, res) => {
-  try {
-    const order = await orders.find();
+  const allOrders = await Orders.find().sort({ createdAt: -1 });
 
-    res.status(200).json({
-      success: true,
-      data: order
-    });
-
-  } catch (error) {
-    console.error("ERROR", error.message);
-
-    res.status(500).json({
-      success: false,
-      message: error.message 
+  if (!allOrders.length) {
+    return sendResponse(res, 200, "there are no orders", {
+      orders: [],
     });
   }
+
+  return sendResponse(res, 200, "get all orders successfully", {
+    orders: allOrders,
+  });
 };
 
 export const getorderbyid = async (req, res) => {
-  try {
-    const order = await orders.findById(req.params.id)
+  const order = await Orders.findById(req.params.id);
 
-    res.status(200).json({
-      success: true,
-      data: order
-    });
-
-  } catch (error) {
-    console.error("ERROR", error.message);
-
-    res.status(500).json({
-      success: false,
-      message: error.message   
-    });
+  if (!order) {
+    return sendResponse(res, 404, "order not found");
   }
+
+  return sendResponse(res, 200, "get order successfully", {
+    order,
+  });
 };
 
-export const UpdateOrder = async (req, res) => {
-  try {
-    const order = await orders.findByIdAndUpdate(req.params.id,req.body,{ new: true });
+export const createOrder = async (req, res) => {
+  const order = await Orders.create(req.body);
 
-    res.status(200).json({
-      success: true,
-      data: order
-    });
-
-  } catch (error) {
-    console.error("ERROR", error.message);
-
-    res.status(500).json({
-      success: false,
-      message: error.message 
-    });
-  }
+  return sendResponse(res, 201, "create order successfully", {
+    order,
+  });
 };
 
-
-export const CreateOrder = async (req, res) => {
-  try {
-    const order = await orders.create({...req.body});
-
-    res.status(200).json({
-      success: true,
-      data: order
-    });
-
-  } catch (error) {
-    console.error("ERROR", error.message);
-
-    res.status(500).json({
-      success: false,
-      message: error.message 
-    });
-  }
-};
-
-export const DeleteOrder = async (req,res) =>{
-    try{
-        const order =  await orders.findByIdAndDelete(req.params.id)
-        res.status(200).json({message : "deleted", data : order})
+export const updateOrder = async (req, res) => {
+  const order = await Orders.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    {
+      new: true,
+      runValidators: true,
     }
-    catch(error){
-        console.error("Error" , error.message);
-        res.status(200).json({
-            message : error.message
-        })
+  );
+
+  if (!order) {
+    return sendResponse(res, 404, "order not found");
+  }
+
+  return sendResponse(res, 200, "update order successfully", {
+    order,
+  });
+};
+
+export const updateOrderStatus = async (req, res) => {
+  const order = await Orders.findByIdAndUpdate(
+    req.params.id,
+    { status: req.body.status },
+    {
+      new: true,
+      runValidators: true,
     }
-}
+  );
+
+  if (!order) {
+    return sendResponse(res, 404, "order not found");
+  }
+
+  return sendResponse(res, 200, "update order status successfully", {
+    order,
+  });
+};
+
+export const deleteOrder = async (req, res) => {
+  const order = await Orders.findByIdAndDelete(req.params.id);
+
+  if (!order) {
+    return sendResponse(res, 404, "order not found");
+  }
+
+  return sendResponse(res, 200, "deleted order successfully", {
+    order,
+  });
+};
